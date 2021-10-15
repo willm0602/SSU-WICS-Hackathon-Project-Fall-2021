@@ -4,6 +4,8 @@ const port = 3000
 
 console.log(__dirname + "pages/index.html");
 
+app.use('/static', express.static('public'))
+
 app.get('/', (req, res) => {
   res.sendFile(__dirname + "/pages/main.html",)
 })
