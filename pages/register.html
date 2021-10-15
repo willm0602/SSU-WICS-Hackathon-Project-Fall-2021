@@ -29,14 +29,46 @@
                 <input type="password" required id= "password" name = "registration" placeholder="Password">
             </label>
 
-            <label for ="capacity">
-                <input type="text" required id= "capacity" name = "shelterreg" placeholder="Capacity">
+            <br><br>
+
+            <p>Is your home in an evacuation zone?</p>
+            <label>
+                <input type="radio" name = "homestatus" value = "yes">Yes</label> 
+            <label>
+                <input type="radio" name = "homestatus" value = "no">No
             </label>
+
+            <p>What are your evacuation plans?</p>
+            <label>
+                <input type="radio" name = "evacstatus" value = "already"> I'm already evacuated
+            </label> 
+            <label>
+                <input type="radio" name = "evacstatus" value = "currently"> I'm currently evacuating
+            </label>
+            <label>
+                <input type="radio" name = "evacstatus" value = "no"> I'm not evacuating
+            </label>
+
+            <p>Do you need help evacuating with large animals?</p>
+            <label>
+                <input type="radio" name = "animals" value = "yes"> Yes
+            </label> 
+            <label>
+                <input type="radio" name = "animals" value = "no"> No
+            </label> 
+
+            <p>Are you able to provide help evacuating large animals?</p>
+            <label>
+                <input type="radio" name = "helpanimals" value = "yes"> Yes
+            </label> 
+            <label>
+                <input type="radio" name = "evacstatus" value = "no"> No
+            </label> 
 
             <br><br>
 
             <button type="submit">Submit</button>
-            <!-- <a href = /userlist.html><button type="submit">Submit</button></a> -->
+
         </form>
     </body>
 
