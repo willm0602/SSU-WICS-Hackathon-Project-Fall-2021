@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTFDnlZz2hTwKzYyvqyLmMWlwv0P0m_LY&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+    <script src="src.js"></script> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles/style.css">
+    <title>Fire Stop - Fire Safety Checkin</title>
+</head>
+<body>
+    <div class="header">
+        <img class="fire-img" src="/static/images/fire.svg" alt="">
+        <h1>Fire Stop</h1>
+    </div>
+    <div class="options">
+        <a href="/main.html"><button class="check-in-button">Check In</button></a>
+        <a href="/main.html"><button class="find-shelter-button">Find Shelter</button></a>
+        <a href="/main.html"><button class="shelter-reg-button">Shelter Register</button></a>
+    </div>
+    <div id="map"></div>
+    <script>
+        function initMap(){
+            var options = {
+                zoom:8,
+                center:{lat: 38.3409, lng: -122.6731}
+            }
+            var map = new google.maps.Map(document.getElementById('map'),options)
+        }
+    </script>  
+</body>
+</html>

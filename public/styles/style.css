@@ -1,0 +1,55 @@
+/* Colors
+CE2D4F : Red
+BD3364 : Raspberry
+AB3879 : Fuschia
+8742A2 : Purple
+4056F4 : Indigo
+*/
+
+
+*{
+    padding:0;
+    margin:0;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.header{
+    padding:1%;
+    margin: 1%;
+    display: flex;
+}
+
+.fire-img{
+    height: 10%;
+    width: 10%;
+}
+
+#map{
+    position: absolute;
+bottom: 0;
+    width:100%;
+    height:85%;
+}
+
+.check-in-button, .find-shelter-button,.shelter-reg-button{
+    background-color: #CE2D4F;
+    border: none;
+    color: white;
+    padding: 3%;
+    margin: 1%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.find-shelter-button{
+    background-color: #BD3364;
+}
+
+.shelter-reg-button{
+    background-color: #AB3879;
+}
