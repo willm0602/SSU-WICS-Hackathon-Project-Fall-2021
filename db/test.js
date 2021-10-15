@@ -1,4 +1,14 @@
-const DB = require('./DB').DB;
+const DB = require('./DB');
+const db = DB.DB;
 
-const test = new DB();
-console.log(test.de);
+async function test()
+{
+    console.log(db);
+    const newPerson = await DB.newPerson(
+        "Johnathan",
+        "Doe",
+        "testtest32"
+    );
+}
+
+console.log(test());
