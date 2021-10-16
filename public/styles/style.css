@@ -63,6 +63,17 @@ bottom: 0;
     background-color: #8742A2;
 }
 
+.buttonContainer{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.statusButtons{
+    height: 100%;
+    width: 100%;
+    overflow-wrap: break-word;
+}
+
 .statusBanner{
     border-bottom: 1px solid black;
     border-top: 1px solid black;
