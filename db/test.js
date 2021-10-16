@@ -1,13 +1,9 @@
-const {newUser} = require('./DB');
+const {newUser, getUsers, newShelter, getShelters} = require('./DB');
 
 async function test()
 {
-    const person = await newUser(
-        "Johnathan",
-        "Doe",
-        "testtest32"
-    );
-    console.log(person);
+    var shelters = await getShelters();
+    console.log(shelters);
 }
 
 test();
