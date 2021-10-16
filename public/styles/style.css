@@ -16,10 +16,15 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
-.header{
+.header {
     padding:1%;
     margin: 1%;
-    display: flex;
+    /* display: flex; */
+
+}
+.header-background{
+    background-image: linear-gradient(to right, #CE2D4F, #8742A2);
+    color:white;
 }
 
 .fire-img{
@@ -44,37 +49,70 @@ body{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .check-in-button{
     background-color: #CE2D4F;
+    border: #99203a solid;
 }
 
 .find-shelter-button{
     background-color: #BD3364;
+    border: #992850 solid;
 }
 
 .shelter-reg-button{
     background-color: #AB3879;
+    border: #8a2c61 solid;
+
 }
 
 .map-page-button {
     background-color: #8742A2;
+    border: #5f2d73 solid;
 }
 
-.buttonContainer{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
 
 .statusButtons{
-    height: 100%;
     width: 100%;
-    overflow-wrap: break-word;
+    border-radius:10px;
+    padding: 10px;
+    color: black;
+    font-size:15px;
+    background-color: white;
+    margin-top:2px;
+    margin-bottom:2px;
+}
+.seach-users-button {
+    background-color: #4056F4;
+    padding-right:1px;
+    padding-left:1px;
+    color: white;
+}
+.search_UI{
+    margin-top: 20px;
 }
 
-.statusBanner{
+
+.safe{
+    border-color: #4056F4;
+    border-width: 2px;
+}
+.warning{
+    border-color: #8742A2;
+    border-width: 2px;
+}
+.evacuating{
+    border-color: #AB3879;
+    border-width: 2px;
+}
+.danger{
+    border-color: #BD3364;
+    border-width: 2px;
+}
+
+/* .statusBanner{
     border-bottom: 1px solid black;
     border-top: 1px solid black;
     margin-top: 10px;
@@ -110,4 +148,4 @@ body{
 .userIcon{
   display: inline-block;
 }
-
+ */
