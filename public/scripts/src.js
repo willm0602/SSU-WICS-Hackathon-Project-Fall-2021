@@ -42,7 +42,7 @@ function addMarker(map,shelter){
     });
 
     const infowindow = new google.maps.InfoWindow({
-        content: `<h3>${shelter.name}</h3> <p>Address: ${shelter.address}</p> <p>Phone: ${shelter.phone}</p> <p>Capacity: ${shelter.capacity}</p>`,
+        content: `<h3>${shelter.name}</h3> <p>Address: ${shelter.address}</p> <p>Phone: <a href="tel:${shelter.phone}">${shelter.phone}</a></p> <p>Capacity: ${shelter.capacity}</p>`,
     });
     
     m.addListener("click", function(){
