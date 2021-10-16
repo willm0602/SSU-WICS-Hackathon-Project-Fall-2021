@@ -7,7 +7,7 @@ console.log(__dirname + "pages/index.html");
 app.use('/static', express.static('public'))
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + "/pages/main.html",)
+  res.sendFile(__dirname + "/pages/map-page.html",)
 })
 
 app.get('/register', (req, res) => {
@@ -26,6 +26,9 @@ app.get('/shelterreg', (req, res) => {
   res.sendFile(__dirname + "/pages/shelterreg.html")
 })
 
+app.get('/map-page', (req, res) => {
+  res.sendFile(__dirname + "/pages/map-page.html")
+})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
