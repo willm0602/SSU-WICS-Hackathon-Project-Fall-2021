@@ -15,59 +15,54 @@
     <title>View users</title>
 </head>
 
+
 <body>
+
+    <!-- Header logo and nav -->
     <div class="header">
-        <img class="fire-img" src="/static/images/fire.svg" alt="">
-        <h1>Fire Stop</h1>
-    </div>
-
-    <div class="options">
-        <a href="/map-page"><button class="map-page-button">Home</button></a>
-        <a href="/register"><button class="check-in-button">Check In</button></a>
-        <a href="/shelterlist"><button class="find-shelter-button">Find Shelter</button></a>
-        <a href="/shelterreg"><button class="shelter-reg-button">Shelter Register</button></a>
-    </div>
-
-    <div class="statusBanner">
-        Insert emergency fire info banner here.
-    </div>
-
-    <!-- <div>
-        <button onclick="updateStatus_Safe()" class="map-page-button statusButtons">Safe</button>
-        <button onclick="updateStatus_WarningZone()" class="shelter-reg-button statusButtons">In Warning Zone</button>
-        <button onclick="updateStatus_Evacuating()" class="find-shelter-button statusButtons">Evacuating</button>
-        <button onclick="updateStatus_Dange()" class="check-in-button statusButtons">Immediate Danger</button>
-    </div> -->
-
-
-    <div class="container buttonContainer">
-        <div class="row">Update Your Status</div>
-        <div class="row">I am...</div>
-        <div class="row">
-          <div class="col">
-            <button onclick="updateStatus_Safe()" class="map-page-button statusButtons">Safe</button>
-          </div>
-          <div class="col">
-            <button onclick="updateStatus_WarningZone()" class="shelter-reg-button statusButtons">In Warning Zone</button>
-          </div>
-          <div class="col">
-            <button onclick="updateStatus_Evacuating()" class="find-shelter-button statusButtons">Evacuating</button>
-          </div>
-          <div class="col">
-            <button onclick="updateStatus_Dange()" class="check-in-button statusButtons">In Danger</button>
-          </div>
-        </div>
+      <div class="mb-1">
+          <img src="/static/images/fire.svg" alt="Fire Logo">
+          <h2 style="display:inline-block;">Fire Stop</h2>
       </div>
+      <div>
+          <a href="/map-page"><button class="map-page-button">Home</button></a>
+          <a href="/register"><button class="check-in-button">Check In</button></a>
+          <a href="/shelterreg"><button class="shelter-reg-button">Shelter Register</button></a>
+      </div>
+`   </div>
 
-    <div class="search">
-        <label for="site-search"></label>
-        <input type="search" id="site-search" name="q" aria-label="Search users" placeholder=" Search users">
-        <button>Go</button> 
+
+    <!-- Status Update/Buttons -->
+    <div class="m-2 mt-0">
+      <div>
+          <h5>Update Your Status</h5>
+          <h6 style="color:gray;">I am...</h6>
+      </div>
+      <div>
+          <button onclick="updateStatus_Safe()" class="statusButtons safe">Safe</button>
+          <button onclick="updateStatus_WarningZone()" class="statusButtons warning">In a warning zone</button>
+          <button onclick="updateStatus_Evacuating()" class="statusButtons evacuating">Evacuating</button>
+          <button onclick="updateStatus_Dange()" class="statusButtons danger">In immediate danger</button>
+      </div>
     </div>
-   
-    <div class="userStatuses">
-        <ul style="list-style-type:none" id="userStatusRows">
-        </ul>
+
+    <!-- Search Users Interface -->
+    <div class="container">
+      <!-- Search Users Row -->
+      <div class="row mt-2">
+          <div class="col">
+              <label for="site-search"></label>
+              <input type="search" id="site-search" name="q" aria-label="Search users" placeholder=" Search users">
+              <button class="seach-users-button">Go</button> 
+          </div>
+      </div>
+      <!-- User Status Rows Block -->
+      <div class="row">
+          <div class="col">
+              <ul style="list-style-type:none" id="userStatusRows">
+              </ul>
+          </div>
+      </div>
     </div>
 
 
