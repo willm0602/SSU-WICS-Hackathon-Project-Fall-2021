@@ -19,16 +19,18 @@
 <body>
 
     <!-- Header logo and nav -->
-    <div class="header">
-      <div class="mb-1">
-          <img src="/static/images/fire.svg" alt="Fire Logo">
-          <h2 style="display:inline-block;">Fire Stop</h2>
-      </div>
-      <div>
-          <a href="/map-page"><button class="map-page-button">Home</button></a>
-          <a href="/register"><button class="check-in-button">Check In</button></a>
+    <div>
+        <div class="mb-1 header-background">
+            <div class="header">
+                <img src="/static/images/fire.svg" alt="Fire Logo">
+                <h2 style="display:inline-block;">Fire Stop</h2>
+            </div>
+        </div>
+        <div style="margin-top: 10px;">
+            <a href="/"><button class="map-page-button">Home</button></a>
+          <a href="/userlist"><button class="check-in-button">Check In</button></a>
           <a href="/shelterreg"><button class="shelter-reg-button">Shelter Register</button></a>
-      </div>
+        </div>
 `   </div>
 
 
@@ -36,18 +38,17 @@
     <div class="m-2 mt-0">
       <div>
           <h5>Update Your Status</h5>
-          <h6 style="color:gray;">I am...</h6>
       </div>
       <div>
-          <button onclick="updateStatus_Safe()" class="statusButtons safe">Safe</button>
-          <button onclick="updateStatus_WarningZone()" class="statusButtons warning">In a warning zone</button>
-          <button onclick="updateStatus_Evacuating()" class="statusButtons evacuating">Evacuating</button>
-          <button onclick="updateStatus_Dange()" class="statusButtons danger">In immediate danger</button>
+          <button onclick="updateStatus_Safe()" class="statusButtons safe">I am safe</button>
+          <button onclick="updateStatus_WarningZone()" class="statusButtons warning">I am in a warning zone</button>
+          <button onclick="updateStatus_Evacuating()" class="statusButtons evacuating">I am evacuating</button>
+          <button onclick="updateStatus_Dange()" class="statusButtons danger">I am in immediate danger</button>
       </div>
     </div>
 
     <!-- Search Users Interface -->
-    <div class="container">
+    <div class="container search_UI">
       <!-- Search Users Row -->
       <div class="row mt-2">
           <div class="col">
