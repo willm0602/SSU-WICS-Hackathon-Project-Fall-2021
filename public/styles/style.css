@@ -93,9 +93,6 @@ h2 {
     padding-left:1px;
     color: white;
 }
-.search_UI{
-    margin-top: 20px;
-}
 
 
 .safe{
@@ -120,7 +117,7 @@ h2 {
     border-width: 2px;
     border: #2c3db8 solid;
     color: white;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 1px 5px;
 }
 
