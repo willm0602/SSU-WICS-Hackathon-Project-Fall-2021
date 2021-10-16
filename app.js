@@ -11,36 +11,44 @@ app.use(express.json()) // for parsing application/json
 app.use('/static', express.static('public'))
 app.use(session({secret:'F!R35+0P'}));
 
+
 app.get('/', (req, res) => {
   console.log(req.session);
   res.sendFile(__dirname + "/pages/map-page.html",)
 })
 
+
 app.get('/register', (req, res) => {
   res.sendFile(__dirname + "/pages/register.html")
 })
+
 
 app.get('/userlist', (req, res) => {
   res.sendFile(__dirname + "/pages/userlist.html")
 })
 
+
 app.get('/shelterlist', (req, res) => {
   res.sendFile(__dirname + "/pages/shelterlist.html")
 })
+
 
 app.get('/shelterreg', (req, res) => {
   res.sendFile(__dirname + "/pages/shelterreg.html")
 })
 
+
 app.get('/map-page', (req, res) => {
   res.sendFile(__dirname + "/pages/map-page.html")
 })
+
 
 //api urls
 app.get('/api/shelters', async (req, res) => {
   var shelters = await getShelters();
   res.send(shelters);
 })
+
 
 app.post('/api/shelters', async (req, res) => {
   var args = req.body
@@ -52,10 +60,12 @@ app.post('/api/shelters', async (req, res) => {
   res.send(args);
 })
 
+
 app.get('/api/user', async (req, res) => {
   var users = await getUsers();
   res.send(users);
 })
+
 
 app.post('/api/user', async (req, res) => {
   var args = req.body
@@ -69,6 +79,9 @@ app.post('/api/user', async (req, res) => {
   res.send(args);
 })
 
+app.get('/api/session_id', async (req, res) => {
+  var id = req.session.id;
+})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
