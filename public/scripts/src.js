@@ -23,7 +23,6 @@ shelter_list.push(buildShelter(JSONsf));
 shelter_list.push(buildShelter(JSONscbbw));
 shelter_list.push(buildShelter(JSONjbf));
 shelter_list.push(buildShelter(JSONsjsu));
-console.log(shelter_list);
 
 function addFire(map,coords){
     const m = new google.maps.Marker({
