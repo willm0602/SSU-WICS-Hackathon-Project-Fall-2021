@@ -5,6 +5,7 @@ const {getShelters, newShelter} = require("./db/DB.js");
 
 const port = 3000
 
+app.use(express.json()) // for parsing application/json
 app.use('/static', express.static('public'))
 
 app.get('/', (req, res) => {
@@ -35,9 +36,13 @@ app.get('/api/shelters', async (req, res) => {
 })
 
 app.post('/api/shelters', async (req, res) => {
-  var args = req.body;
-  console.log(args);
-  req.send();
+  var args = req.body
+  await newShelter(
+    args["name"],
+    args["lat"],
+    args["lon"]
+  )
+  res.send(args);
 })
 
 app.listen(port, () => {
