@@ -1,8 +1,9 @@
+const { json } = require('express');
 const express = require('express')
 const app = express()
-const port = 3000
+const {getShelters, newShelter} = require("./db/DB.js");
 
-console.log(__dirname + "pages/index.html");
+const port = 3000
 
 app.use('/static', express.static('public'))
 
@@ -26,6 +27,18 @@ app.get('/shelterreg', (req, res) => {
   res.sendFile(__dirname + "/pages/shelterreg.html")
 })
 
+
+//api urls
+app.get('/api/shelters', async (req, res) => {
+  var shelters = await getShelters();
+  res.send(shelters);
+})
+
+app.post('/api/shelters', async (req, res) => {
+  var args = req.body;
+  console.log(args);
+  req.send();
+})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

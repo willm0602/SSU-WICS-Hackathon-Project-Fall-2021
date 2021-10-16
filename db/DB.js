@@ -59,12 +59,13 @@ async function newShelter(name, lat, lon, address, capacity, phone)
 
 async function getShelters()
 {
-    var users;
+    var shelters;
+    console.log("calling getshelters function");
     await supabase_client.from("Shelter").select("*").then(
         (res, err) => {
             shelters = res['data'];
         }
-    )
+    );
     return shelters;
 }
 
