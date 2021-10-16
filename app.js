@@ -1,7 +1,7 @@
 const { json } = require('express');
 const express = require('express')
 const app = express()
-const {getShelters, newShelter} = require("./db/DB.js");
+const {getShelters, newShelter, getUsers, newUser} = require("./db/DB.js");
 
 const port = 3000
 
@@ -44,6 +44,23 @@ app.post('/api/shelters', async (req, res) => {
   )
   res.send(args);
 })
+
+app.get('/api/user', async (req, res) => {
+  var users = await getUsers();
+  res.send(users);
+})
+
+app.post('/api/user', async (req, res) => {
+  var args = req.body
+  await newUser(
+    args["firstName"],
+    args["lastName"],
+    args["username"],
+    args["status"]
+  )
+  res.send(args);
+})
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
