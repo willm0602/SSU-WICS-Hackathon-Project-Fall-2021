@@ -10,7 +10,7 @@ const port = 3000
 app.use(express.json()) // for parsing application/json
 app.use('/static', express.static('public'))
 app.use(session({secret:'F!R35+0P'}));
-
+app.use(express.cookieParser())
 
 app.get('/', (req, res) => {
   console.log(req.session);
@@ -75,12 +75,13 @@ app.post('/api/user', async (req, res) => {
     args["username"],
     args["status"]
   )
-  req.session.user = user;
-  res.send(args);
+  res.cookie("id", str(user));
 })
 
 app.get('/api/session_id', async (req, res) => {
-  var id = req.session.id;
+  var cookies = req.session.cookie;
+  console.log(cookies);
+  res.send("id");
 })
 
 app.listen(port, () => {
