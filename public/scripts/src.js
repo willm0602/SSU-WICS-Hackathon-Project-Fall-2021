@@ -1,28 +1,20 @@
 url = "https://services3.arcgis.com/T4QMspbfLg3qTGWY/arcgis/rest/services/CY_WildlandFire_Perimeters_ToDate/FeatureServer/0/query?where=1%3D1&outFields=irwin_FireDiscoveryDateTime,irwin_FireOutDateTime,irwin_InitialLatitude,irwin_InitialLongitude&outSR=4326&f=json"
 
+shelter_url = "/api/shelters"
+
 var active_fires = [];
 var shelter_list = [];
-
-const JSONssu = {lat:38.3409, lng:-122.6731, name:"sonoma state", address:"420 blaze street", phone:"1234567890"}
-const JSONsf = {lat: 37.7749, lng: -122.4194, name:"san franciso",address:"420 blaze street", phone:"1234567890"}
-const JSONscbbw = {lat: 36.9643, lng: -122.0187, name:"santa cruz beach boardwalk",address:"420 blaze street", phone:"1234567890"};
-const JSONjbf = { lat: 38.239181, lng: 	-122.079396, name:"jelly belly factory",address:"420 blaze street", phone:"1234567890" };
-const JSONsjsu = {lat: 37.3352, lng: -121.8811, name: "san jose state", address:"420 blaze street", phone:"1234567890"}
+var holdData = [];
 
 function buildShelter(json){
     return {
-        coords:{lat:json.lat, lng:json.lng},
+        coords:{lat:json.lat, lng:json.lon},
         name: json.name,
         address: json.address,
-        phone: json.phone
+        phone: json.phonenumber,
+        capacity: json.capacity
     }
 }
-
-shelter_list.push(buildShelter(JSONssu));
-shelter_list.push(buildShelter(JSONsf));
-shelter_list.push(buildShelter(JSONscbbw));
-shelter_list.push(buildShelter(JSONjbf));
-shelter_list.push(buildShelter(JSONsjsu));
 
 function addFire(map,coords){
     const m = new google.maps.Marker({
@@ -50,7 +42,7 @@ function addMarker(map,shelter){
     });
 
     const infowindow = new google.maps.InfoWindow({
-        content: `<h3>${shelter.name}</h3> <p>${shelter.address}</p> <p>${shelter.phone}</p>`,
+        content: `<h3>${shelter.name}</h3> <p>Address: ${shelter.address}</p> <p>Phone: ${shelter.phone}</p> <p>Capacity: ${shelter.capacity}</p>`,
     });
     
     m.addListener("click", function(){
@@ -88,6 +80,14 @@ async function initMap() {
         center: { lat: 38.3409, lng: -122.6731 },
     });
 
+    await $.ajax(shelter_url, {
+        success: function (data) {
+            data.forEach(function(element){
+                holdData.push(element)
+            })
+        }
+    });
+
     await $.ajax(url,
         {
             success: function (data) {// success callback function
@@ -102,6 +102,10 @@ async function initMap() {
                 })
         }
     });
+
+    holdData.forEach( function(shelter){
+        shelter_list.push(buildShelter(shelter));
+    })
 
     //adds all shelter markers onto the map
     addAllMakers(map,shelter_list);
