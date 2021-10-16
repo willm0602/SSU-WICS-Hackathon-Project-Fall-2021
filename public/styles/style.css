@@ -34,7 +34,7 @@ bottom: 0;
     height:85%;
 }
 
-.check-in-button, .find-shelter-button,.shelter-reg-button{
+.check-in-button, .find-shelter-button,.shelter-reg-button, .map-page-button{
     background-color: #CE2D4F;
     border: none;
     color: white;
@@ -44,6 +44,11 @@ bottom: 0;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    border-radius: 10px;
+}
+
+.check-in-button{
+    background-color: #CE2D4F;
 }
 
 .find-shelter-button{
@@ -53,3 +58,56 @@ bottom: 0;
 .shelter-reg-button{
     background-color: #AB3879;
 }
+
+.map-page-button {
+    background-color: #8742A2;
+}
+
+.buttonContainer{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.statusButtons{
+    height: 100%;
+    width: 100%;
+    overflow-wrap: break-word;
+}
+
+.statusBanner{
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    color:#CE2D4F;
+    font-weight: bold;
+    font-size: 18;
+}
+
+.userStatusRow{
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    width: 100%;
+    vertical-align: middle;
+    align-self:center;
+    line-height: 70px;
+    height: 70px;
+}
+
+.userStatuses{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-items:center;
+    align-content: center;
+    align-self: center;
+}
+
+.userStatusx{
+  vertical-align: middle;
+}
+
+.userIcon{
+  display: inline-block;
+}
+

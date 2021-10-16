@@ -9,7 +9,7 @@ app.use(express.json()) // for parsing application/json
 app.use('/static', express.static('public'))
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + "/pages/main.html",)
+  res.sendFile(__dirname + "/pages/map-page.html",)
 })
 
 app.get('/register', (req, res) => {
@@ -28,6 +28,9 @@ app.get('/shelterreg', (req, res) => {
   res.sendFile(__dirname + "/pages/shelterreg.html")
 })
 
+app.get('/map-page', (req, res) => {
+  res.sendFile(__dirname + "/pages/map-page.html")
+})
 
 //api urls
 app.get('/api/shelters', async (req, res) => {
