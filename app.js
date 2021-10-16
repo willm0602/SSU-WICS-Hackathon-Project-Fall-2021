@@ -1,5 +1,7 @@
 const { json } = require('express');
-const express = require('express')
+const express = require('express');
+const session = require('express-session');
+
 const app = express()
 const {getShelters, newShelter, getUsers, newUser} = require("./db/DB.js");
 
@@ -7,8 +9,10 @@ const port = 3000
 
 app.use(express.json()) // for parsing application/json
 app.use('/static', express.static('public'))
+app.use(session({secret:'F!R35+0P'}));
 
 app.get('/', (req, res) => {
+  console.log(req.session);
   res.sendFile(__dirname + "/pages/map-page.html",)
 })
 
@@ -55,12 +59,13 @@ app.get('/api/user', async (req, res) => {
 
 app.post('/api/user', async (req, res) => {
   var args = req.body
-  await newUser(
+  var user = await newUser(
     args["firstName"],
     args["lastName"],
     args["username"],
     args["status"]
   )
+  req.session.user = user;
   res.send(args);
 })
 
