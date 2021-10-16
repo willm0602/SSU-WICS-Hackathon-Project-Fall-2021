@@ -36,10 +36,8 @@
 
 
     <!-- Status Update/Buttons -->
-    <div class="m-2 mt-0">
-      <div>
-          <h5>Update Your Status</h5>
-      </div>
+    <div style="margin: 10px 5px;">
+      <h3>Update Your Status</h3>
       <div>
           <button onclick="updateStatus_Safe()" class="statusButtons safe">I am safe</button>
           <button onclick="updateStatus_WarningZone()" class="statusButtons warning">I am in a warning zone</button>
@@ -49,13 +47,13 @@
     </div>
 
     <!-- Search Users Interface -->
-    <div class="container search_UI">
+    <div class="container" style="margin: 15px 5px;">
       <!-- Search Users Row -->
-      <div class="row mt-2">
+      <div class="row">
           <div class="col">
               <label for="site-search"></label>
               <input type="search" id="site-search" name="q" aria-label="Search users" placeholder=" Search users">
-              <button class="seach-users-button">Go</button> 
+              <button class="seach-users-button submit">Go</button> 
           </div>
       </div>
       <!-- User Status Rows Block -->
