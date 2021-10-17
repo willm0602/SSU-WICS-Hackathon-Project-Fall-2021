@@ -10,7 +10,7 @@ async function getUsers()
 async function getID()
 {
     await $.get("/api/session_id", (data, status) => {
-        console.log(data);
+        return(data);
     })
 }
 
@@ -43,5 +43,37 @@ $(".safe").on("click", async (e) => {
     await updateStatus(await getID(), "Safe")
 })
 
-getUsers();
-getID();
+$(".warning").on("click", async(e) => {
+    await updateStatus(await getID(), "Warning")
+})
+
+$(".evacuating").on("click", async (e) => {
+    await updateStatus(await getID(), "Evacuating")
+})
+
+$(".danger").on("click", async(e) => {
+    await updateStatus(await getID(), "Danger")
+})
+
+
+//generates the list of people
+
+const search_field = $("#site-search");
+const users_list_field = $("#userStatusRows");
+
+async function getListOfPeople()
+{
+    var users = await getUsers();
+    users.forEach((user) => {
+        try {
+            var row = `<li class="userStatusRow"><img src="/static/images/avatar.png">${user.firstName} ${user.lastName} is ${user.status}</li>`
+            console.log(row);
+            users_list_field.append(row);
+        } catch (error) {
+            console.error(error);
+        }
+    })
+
+}
+
+getListOfPeople();
