@@ -110,6 +110,17 @@ AB3879 : Fuschia
         width: 125px;
         height: 40px;
     }
+    
+    #shelterreg-submit{
+        background-color: #4056F4;
+        border-width: 2px;
+        border: #2c3db8 solid;
+        color: white;
+        border-radius: 5px;
+        padding: 1px 5px;
+        width: 125px;
+        height: 40px;
+    }
     .searchBox{
         height: 40px;
         width: 200px;
