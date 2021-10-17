@@ -11,13 +11,19 @@ The FireStop app allows communities to communicate and stay safe during wildfire
 
 ## Features
 * Interactive map
-  * Displays registered evacuation shelters with informational pop-ups
-  * 
+  * Displays registered evacuation shelters with informational pop-ups and contact information
+  * Shows locations of live fires
+* User registration and status reporting
+* User browse and search
+* Shelter registration
 
+---
 
 ## Future Development
+* Allow shelters to create accounts and edit information as necessary
+* Displays contact information for users to communicate about animal evacuations
 
-
+---
 
 ## Authors
 ### Will Migdol, Katie Pell, Katie Trombetta, Troy Wilson
