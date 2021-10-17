@@ -97,10 +97,8 @@
             const phoneField = $("#shelterphone");
             const capacityField = $("#capacity");
             const subbtn = $("#shelterreg-submit");
-            console.log(subbtn);
             subbtn.on("click", async (e) => {
                 e.preventDefault();
-                console.log("clicked");
                 var params = {
                     name: nameField.val(),
                     address: addressField.val(),

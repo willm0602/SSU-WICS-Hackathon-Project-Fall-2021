@@ -4,8 +4,11 @@ const app = express()
 const {getShelters, newShelter, getUsers, newUser, updateStatus} = require("./db/DB.js");
 const session = require('express-session')
 const port = 3000
+const bodyParser = require('body-parser');
 
 app.use(express.json()) // for parsing application/json
+
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(session(
   {
     secret: 'pots erif',
@@ -70,17 +73,18 @@ app.get('/api/user', async (req, res) => {
 
 app.post('/api/user', async (req, res) => {
   var args = req.body
+  console.log(args);
   var user = await newUser(
-    args["firstName"],
-    args["lastName"],
-    args["username"],
-    args["status"]
+    args["registration"][0],
+    args["registration"][1],
+    args["registration"][2],
+    args["evacstatus"]
   )
   req.session.user = user;
   res.redirect("/userlist")
 })
 
-app.put("/api/player", async (req, res) => {
+app.put("/api/user", async (req, res) => {
   var status = req.body.status;
   var id = req.session.user;
   if(id)
@@ -109,5 +113,5 @@ app.get('/api/session_id', async (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`Hosting app listening at http://localhost:${port}`)
 })

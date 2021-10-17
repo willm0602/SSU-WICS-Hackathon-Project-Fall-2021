@@ -27,7 +27,7 @@ async function updateStatus(id, status)
     {
         await $.ajax({
             type: "PUT",
-            url: '/api/player',
+            url: '/api/user',
             data: JSON.stringify({'status': status}),
             contentType: "application/json; charset=utf-8",
             success : function(data) {              
