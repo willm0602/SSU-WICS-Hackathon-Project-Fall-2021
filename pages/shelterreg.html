@@ -29,39 +29,39 @@
             <div style="margin-top: 10px;">
             <a href="/"><button class="map-page-button">Home</button></a>
             <a href="/register"><button onclick="checkIfRegsitered()" class="check-in-button">Check In</button></a>
-            <a href="/shelterreg"><button class="shelter-reg-button">Shelter Register</button></a>
+            <a href="/shelterreg"><button class="shelter-reg-button">Add Shelter</button></a>
             </div>
         </div>
 
     <div class="header">
-        <h2>Check in with your community & find a shelter near you</h2>
+        <h2 class="intro">Register your shelter to be added to our interactive shelter map</h2>
         <form action = "/shelterlist">
-            <label for ="sheltername">
-                <input type="text" required id= "sheltername" name = "shelterreg">Shelter name
+            <label for ="sheltername">Shelter name
+                <input type="text" required id= "sheltername" name = "shelterreg">
             </label>
 
             <br><br>
 
-            <label for ="shelterlocation">
-                <input type="text" required id= "shelterlocation" name = "shelterreg">Shelter location
+            <label for ="shelterlocation">Shelter location
+                <input type="text" required id= "shelterlocation" name = "shelterreg">
             </label>
 
             <br><br>
 
-            <label for ="shelterphone">
-                <input type="text" required id= "shelterphone" name = "shelterreg">Shelter phone number
+            <label for ="shelterphone">Shelter phone number
+                <input type="text" required id= "shelterphone" name = "shelterreg">
             </label>
 
             <br><br>
 
-            <label for ="capacity">
-                <input type="text" required id= "capacity" name = "shelterreg">Shelter capacity
+            <label for ="capacity">Shelter capacity
+                <input type="text" required id= "capacity" name = "shelterreg">
             </label>
 
             <br><br>
 
-            <label for ="adminpassword">
-                <input type="password" required id= "adminpassword" name = "adminpassword">Shelter admin password
+            <label for ="adminpassword">Shelter admin password
+                <input type="password" required id= "adminpassword" name = "adminpassword">
             </label>
 
             <button style="display:block; margin-top:15px;" class="submit" type="submit">Submit</button>
