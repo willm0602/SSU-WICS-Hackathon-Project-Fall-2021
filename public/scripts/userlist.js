@@ -7,5 +7,12 @@ async function getUsers()
     })
 }
 
-getUsers();
+async function getID()
+{
+    await $.get("/api/session_id", (data, status) => {
+        console.log(data);
+    })
+}
 
+getUsers();
+getID();

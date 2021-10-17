@@ -2,10 +2,18 @@ const { json } = require('express');
 const express = require('express')
 const app = express()
 const {getShelters, newShelter, getUsers, newUser} = require("./db/DB.js");
-
+const session = require('express-session')
 const port = 3000
 
 app.use(express.json()) // for parsing application/json
+app.use(session(
+  {
+    secret: 'pots erif',
+    resave: true,
+    saveUninitialized: true,
+    cookie: { secure: false }
+  }
+));
 app.use('/static', express.static('public'))
 
 app.get('/', (req, res) => {
@@ -64,15 +72,16 @@ app.post('/api/user', async (req, res) => {
     args["username"],
     args["status"]
   )
-  res.cookie("id", user);
-  res.send(user);
+  req.session.user = user;
+  res.redirect("/userlist")
 })
 
 app.get('/api/session_id', async (req, res) => {
-  var id = req.cookies.id;
+  console.log(req.session);
+  var id = req.session.user;
   if(id)
   {
-    res.send(id);
+    res.send("" + id);
   }
   else
   {
