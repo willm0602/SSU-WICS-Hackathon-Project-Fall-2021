@@ -1,7 +1,7 @@
 const { json } = require('express');
 const express = require('express')
 const app = express()
-const {getShelters, newShelter, getUsers, newUser} = require("./db/DB.js");
+const {getShelters, newShelter, getUsers, newUser, updateStatus} = require("./db/DB.js");
 const session = require('express-session')
 const port = 3000
 
@@ -76,8 +76,22 @@ app.post('/api/user', async (req, res) => {
   res.redirect("/userlist")
 })
 
+app.put("/api/player", async (req, res) => {
+  var status = req.body.status;
+  var id = req.session.user;
+  if(id)
+  {
+    await updateStatus(id, status);
+    res.send("Succesfully updated");
+  }
+  else
+  {
+    res.send("No ID provided");
+  }
+})
+
+
 app.get('/api/session_id', async (req, res) => {
-  console.log(req.session);
   var id = req.session.user;
   if(id)
   {
