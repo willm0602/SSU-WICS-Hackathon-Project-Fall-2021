@@ -1,6 +1,0 @@
-{
-    "dbLogin": {
-        "url": "SUPABASE URL HERE",
-        "apiKey": "API KEY HERE"
-    }
-}
