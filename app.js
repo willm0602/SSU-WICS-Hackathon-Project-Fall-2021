@@ -48,13 +48,17 @@ app.get('/api/shelters', async (req, res) => {
 
 
 app.post('/api/shelters', async (req, res) => {
-  var args = req.body
+  var args = req.body;
+  console.log(args);
   await newShelter(
     args["name"],
     args["lat"],
-    args["lon"]
-  )
-  res.send(args);
+    args["lon"],
+    args["address"],
+    args["capacity"],
+    args["phone"]
+  );
+  res.redirect("/")
 })
 
 

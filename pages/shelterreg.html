@@ -36,39 +36,39 @@
  
    <div class="header">
        <h2 class="intro">Register your shelter to be added to our interactive shelter map</h2>
-       <form action = "/shelterlist" style="margin-top: 10px;">
+       <form style="margin-top: 10px;">
            <label for ="sheltername">Shelter name
-               <input class="shelterInput" type="text" required id= "sheltername" name = "shelterreg">
+               <input class="shelterInput" type="text" required id= "sheltername" name = "name">
            </label>
  
            <br><br>
  
            <label for ="shelterlocation">Shelter location
-               <input class="shelterInput" type="text" required id= "shelterlocation" name = "shelterreg">
+               <input class="shelterInput" type="text" required id= "shelterlocation" name = "address">
            </label>
  
            <br><br>
 
            <label for ="shelterlat">Shelter latitude
-            <input class="shelterInput" type="text" required id= "shelterlat" name = "shelterreg">
+            <input class="shelterInput" type="text" required id= "shelterlat" name = "lat">
            </label>
 
             <br><br>
  
             <label for ="shelterlng">Shelter longitude
-                <input class="shelterInput" type="text" required id= "shelterlng" name = "shelterreg">
+                <input class="shelterInput" type="text" required id= "shelterlon" name = "lon">
             </label>
     
             <br><br>
 
            <label for ="shelterphone">Shelter phone number
-               <input class="shelterInput" type="text" required id= "shelterphone" name = "shelterreg">
+               <input class="shelterInput" type="text" required id= "shelterphone" name = "phone">
            </label>
  
            <br><br>
  
            <label for ="capacity">Shelter capacity
-               <input class="shelterInput" type="text" required id= "capacity" name = "shelterreg">
+               <input class="shelterInput" type="text" required id= "capacity" name = "capacity">
            </label>
  
            <br><br>
@@ -77,10 +77,37 @@
                <input class="shelterInput" type="password" required id= "adminpassword" name = "adminpassword">
            </label>
  
-           <button style="display:block; margin-top:15px;" class="submit" type="submit">Submit</button>
+           <button id="shelterreg-submit" style="display:block; margin-top:15px;" >Submit</button>
            <!-- <a href = /userlist.html><button type="submit">Submit</button></a> -->
        </form>
        </div>
+       <script>
+            const nameField = $("#sheltername");
+            const addressField = $("#shelterlocation");
+            const latField = $("#shelterlat");
+            const lonField = $("#shelterlon");
+            const phoneField = $("#shelterphone");
+            const capacityField = $("#capacity");
+            const subbtn = $("#shelterreg");
+
+            subbtn.on("click", async (data, status) => {
+                
+                
+                await $.ajax({
+                    type: "POST",
+                    url: '/api/player',
+                    data: JSON.stringify({'status': status}),
+                    contentType: "application/json; charset=utf-8",
+                    success : function(data) {              
+                        console.log(data);
+                    },
+                    error : function(request,error)
+                    {
+                        console.error(error);
+                    }
+                });
+            })
+       </script>
    </body>
  
    <foot>
