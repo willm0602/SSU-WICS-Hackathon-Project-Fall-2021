@@ -2,10 +2,6 @@
 <html lang="en">
    <head>
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-       <script async
-         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTFDnlZz2hTwKzYyvqyLmMWlwv0P0m_LY&callback=initMap&libraries=&v=weekly"
-       ></script>
-       <script src="/static/scripts/src.js"></script>
        <meta charset="UTF-8">
        <meta http-equiv="X-UA-Compatible" content="IE=edge">
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,26 +80,39 @@
                <input class="shelterInput" type="password" required id= "adminpassword" name = "adminpassword">
            </label>
  
-           <button id="shelterreg-submit" style="display:block; margin-top:15px;" >Submit</button>
+           <button id="shelterreg-submit" type="submit" style="display:block; margin-top:15px;" >Submit</button>
            <!-- <a href = /userlist.html><button type="submit">Submit</button></a> -->
        </form>
        </div>
        <script>
+
+            $("form").submit((e) => {
+                e.preventDefault();
+            })
+
             const nameField = $("#sheltername");
             const addressField = $("#shelterlocation");
             const latField = $("#shelterlat");
             const lonField = $("#shelterlon");
             const phoneField = $("#shelterphone");
             const capacityField = $("#capacity");
-            const subbtn = $("#shelterreg");
-
-            subbtn.on("click", async (data, status) => {
-                
-                
+            const subbtn = $("#shelterreg-submit");
+            console.log(subbtn);
+            subbtn.on("click", async (e) => {
+                e.preventDefault();
+                console.log("clicked");
+                var params = {
+                    name: nameField.val(),
+                    address: addressField.val(),
+                    lat: latField.val(),
+                    lon: lonField.val(),
+                    phone: phoneField.val(),
+                    capacity: capacityField.val()
+                }
                 await $.ajax({
                     type: "POST",
-                    url: '/api/player',
-                    data: JSON.stringify({'status': status}),
+                    url: '/api/shelters',
+                    data: JSON.stringify(params),
                     contentType: "application/json; charset=utf-8",
                     success : function(data) {              
                         console.log(data);
