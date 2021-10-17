@@ -38,6 +38,7 @@ app.get('/api/shelters', async (req, res) => {
   res.send(shelters);
 })
 
+
 app.post('/api/shelters', async (req, res) => {
   var args = req.body
   await newShelter(
@@ -48,20 +49,35 @@ app.post('/api/shelters', async (req, res) => {
   res.send(args);
 })
 
+
 app.get('/api/user', async (req, res) => {
   var users = await getUsers();
   res.send(users);
 })
 
+
 app.post('/api/user', async (req, res) => {
   var args = req.body
-  await newUser(
+  var user = await newUser(
     args["firstName"],
     args["lastName"],
     args["username"],
     args["status"]
   )
-  res.send(args);
+  res.cookie("id", user);
+  res.send(user);
+})
+
+app.get('/api/session_id', async (req, res) => {
+  var id = req.cookies.id;
+  if(id)
+  {
+    res.send(id);
+  }
+  else
+  {
+    res.send("");
+  }
 })
 
 
