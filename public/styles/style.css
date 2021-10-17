@@ -20,7 +20,7 @@ AB3879 : Fuschia
     }
     body{
         font-family: 'Roboto', sans-serif;
-        min-width: 410px;
+        /* min-width: 410px; */
     }
     .header {
         padding:1%;
@@ -49,14 +49,14 @@ AB3879 : Fuschia
         background-color: #CE2D4F;
         border: none;
         color: white;
-        padding: 1px 5px;
+        padding: 1px 2px;
         margin: 1%;
         text-align: center;
         text-decoration: none;
         display: inline-block;
-        font-size: 14px;
+        font-size: 10px;
         border-radius: 5px;
-        width: 125px;
+        width: 100px;
         height: 40px;
     }
     .check-in-button{
